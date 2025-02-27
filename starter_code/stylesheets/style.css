@@ -22,6 +22,12 @@ body {
   
 }
 
+
+/* Aplicamos esta propiedad CSS a todos los hijos directos del body que NO son el elemento main https://www.w3schools.com/cssref/sel_not.php */
+body > *:not(main) {
+    padding: 1rem;
+}
+
 /* Parece que los estilos base de toda la página para los botones comparten estas características. En estos casos puede ser una buena idea usar un selector de tags para modificar de base todos los botones */
 button {
     font-weight: 700;
@@ -32,6 +38,7 @@ button {
     border-radius: 4px;
 
 }
+
 
 
 
@@ -59,6 +66,12 @@ button {
 .navbar__icons button{
     background-color: var(--bg-purple);
     border: none;
+}
+
+.hero > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 
@@ -108,7 +121,7 @@ button {
 .screenshot {
       /* Esto es para "tapar" la aplicación Slack que aparece en el móvil y en la pantalla de escritorio con esta sección. Alejandro lo ha solucionado con un margin negativo, que también funciona bien */
       position: relative;
-      top: 30px;
+      top: 60px;
       z-index: -5;
 }
 
@@ -117,7 +130,7 @@ button {
     text-transform: uppercase;
     text-align: center;
     background-color: var(--bg-ivory);
-  
+    padding: 1rem;
     
 }
 
@@ -130,13 +143,13 @@ button {
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     padding: 2rem;
 }
 
 .companies__logos img {
     /* Por algún motivo me ha quededo mejor estableciendo el máximo de la altura en vez del width */
-    max-height: 60px;
+    max-height: 40px;
 }
 
 /* Teams */
@@ -146,6 +159,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem;
 
 }
 
@@ -162,12 +176,15 @@ button {
     margin: 0 auto;
     max-width: 300px;
     gap: 1rem;
+
+    /* una forma moderna de estribir el selector .teams__static span https://www.w3schools.com/cssref/sel_nesting.php*/
+    & span {
+        color: var(--bg-purple);
+        font-size: 2.5rem;
+    }
 }
 
-.teams__statistics span {
-    color: var(--bg-purple);
-    font-size: 2rem;
-}
+
 
 .welcome {
     color: white;
@@ -191,4 +208,38 @@ button {
     color: white;
 }
 
+footer {
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
+.menu-links {
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+.social {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer small {
+    color: #454245;
+    text-align: center;
+}
+
+
+/* Selecciona el último li */
+.menu-links li:last-of-type {
+    color: #2E71A6;
+}
+
+
+/* clase de utilidad. La usamos en diferentes partes de la Web */
+.container-90 {
+    width: 90vw;
+    margin: 0 auto;
+}
